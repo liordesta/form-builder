@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { Header } from '../../ui/Header/Header';
 import { Button } from '../../ui/Button/Button';
 import { Seperator } from '../../ui/Seperator/Seperator';
 import { FormItem } from '../FormItem/FormItem';
 import { useAppContext } from '../../../contexts/AppContext';
+import ApiService from '../../../api/services/ApiService';
 import classes from './GetForm.module.css';
 
 export const GetForm = () => {
@@ -15,16 +15,18 @@ export const GetForm = () => {
   const getFormById = () => {
     if (!selectedFormId.length) return false;
 
-    axios
-      .get(`http://localhost:3001/api/getForms/${selectedFormId}`)
-      .then((response) => {
-        setSingleForm(response.data);
+    const fetchFormById = async () => {
+      try {
+        const formsData = await ApiService.forms.getFormById(selectedFormId);
+        setSingleForm(formsData);
         setIsError(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         setIsError(true);
         console.log('err', err);
-      });
+      }
+    };
+
+    fetchFormById();
 
     const singleFormData = allForms.find((form) => form._id === selectedFormId);
 

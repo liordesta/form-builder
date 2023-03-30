@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { Header } from '../../ui/Header/Header';
 import { useAppContext } from '../../../contexts/AppContext';
 import { SetForm } from '../NewForm/SetForm';
+import ApiService from '../../../api/services/ApiService';
 
 export const EditForm = () => {
   const [isError, setIsError] = useState(false);
@@ -15,18 +15,21 @@ export const EditForm = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get(`http://localhost:3001/api/getForms/${id}`)
-      .then((response) => {
-        setSingleForm(response.data);
+
+    const fetchFormById = async () => {
+      try {
+        const formsData = await ApiService.forms.getFormById(id);
+        setSingleForm(formsData);
         setIsLoading(false);
-        setFormFields(response.data.fieldsData);
-      })
-      .catch((err) => {
+        setFormFields(formsData.fieldsData);
+      } catch (err) {
         setIsError(true);
         setIsLoading(false);
         console.log('err', err);
-      });
+      }
+    };
+
+    fetchFormById();
 
     if (isError) navigate('/');
 

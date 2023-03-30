@@ -1,9 +1,9 @@
 import { useState, useId } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { ReactComponent as EditIcon } from '../../../assets/pencil.svg';
 import { ReactComponent as DeleteIcon } from '../../../assets/delete.svg';
 import { useAppContext } from '../../../contexts/AppContext';
+import ApiService from '../../../api/services/ApiService';
 import classes from './FormItem.module.css';
 
 export const FormItem = ({ data, isSingleForm }) => {
@@ -23,11 +23,17 @@ export const FormItem = ({ data, isSingleForm }) => {
   };
 
   const deleteFormHandler = (id) => {
-    axios
-      .delete(`http://localhost:3001/api/deleteForm/${id}`)
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchDelForm = async () => {
+      try {
+        const formsData = await ApiService.forms.deleteForm(id);
+        setAllForms(formsData);
+        setSingleForm({});
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchDelForm();
 
     setAllForms((prevListOfForms) =>
       prevListOfForms.filter((form) => form._id !== id)

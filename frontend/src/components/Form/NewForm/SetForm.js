@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { Seperator } from '../../ui/Seperator/Seperator';
 import { Modal } from '../../ui/Modal/Modal';
 import { Button } from '../../ui/Button/Button';
 import { useAppContext } from '../../../contexts/AppContext';
+import ApiService from '../../../api/services/ApiService';
 import classes from './SetForm.module.css';
 
 export const SetForm = ({ isEditMode }) => {
@@ -61,19 +61,23 @@ export const SetForm = ({ isEditMode }) => {
     const formObj = { formName, fieldsData };
 
     if (isEditMode) {
-      axios
-        .put(`http://localhost:3001/api/editForm/${singleForm._id}`, formObj)
-        .then(() => {
-          setFormFields([]);
-          setSingleForm([]);
-        });
+      const fetchFormById = async () => {
+        await ApiService.forms.updateForm(singleForm._id, formObj);
+        setFormFields([]);
+        setSingleForm([]);
+      };
+
+      fetchFormById();
     } else {
-      axios.post('http://localhost:3001/api/createForm', formObj).then(() => {
+      const fetchFormById = async () => {
+        await ApiService.forms.createForm(formObj);
         setFormFields([]);
         setFormName('');
         setFormErrorMessage(false);
         setSingleForm([]);
-      });
+      };
+
+      fetchFormById();
     }
 
     navigate('/');

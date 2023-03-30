@@ -4,7 +4,7 @@ This app allow you to create and build forms with different types and save them,
 
 ## Live Demo
 
-will update link
+https://form-builder-lior.netlify.app
 
 ## Screenshot
 

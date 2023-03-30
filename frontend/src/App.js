@@ -1,9 +1,9 @@
 import { lazy, Suspense, useEffect } from 'react';
-import axios from 'axios';
 import { Routes, Route } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import { useAppContext } from './contexts/AppContext';
+import ApiService from './api/services/ApiService';
 
 const AllForms = lazy(() => import('./pages/AllFormsPage'));
 const CreateForm = lazy(() => import('./pages/CreateFormPage'));
@@ -15,10 +15,13 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/getForms').then((response) => {
-      setAllForms(response.data);
-    });
-    setSingleForm({});
+    const fetchAllForms = async () => {
+      const formsData = await ApiService.forms.getAllForms();
+      setAllForms(formsData);
+      setSingleForm({});
+    };
+
+    fetchAllForms();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
