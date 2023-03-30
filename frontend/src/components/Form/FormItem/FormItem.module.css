@@ -1,0 +1,65 @@
+.all_forms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 32px;
+}
+
+.form_item {
+  width: 30%;
+  margin-bottom: 32px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 10px;
+  text-align: center;
+  min-height: 260px;
+}
+.form_item h4 {
+  margin: 16px 0;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.form_item:nth-child(3n) {
+  margin-right: 0;
+}
+.form_item_header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.form_item_actionBtns {
+  position: absolute;
+  right: 0;
+}
+.form_item_actionBtns button {
+  border: 0;
+  background-color: transparent;
+}
+.form_item_actionBtns button svg {
+  stroke: black;
+}
+.form_item_actionBtns button svg:hover {
+  cursor: pointer;
+  stroke: #0175c8;
+}
+
+.form_fields {
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px;
+  gap: 24px;
+}
+.fields {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.form_fields input {
+  margin: 8px 0 16px 8px;
+}
+.form_fields input[type='radio'] {
+  margin: 8px 4px 12px 0;
+}

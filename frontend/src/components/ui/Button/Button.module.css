@@ -1,0 +1,21 @@
+.primary_btn {
+  cursor: pointer;
+  background-color: #0093fb;
+  border-radius: 3px;
+  padding: 12px;
+  color: white;
+  border: none;
+}
+.primary_btn:hover {
+  background-color: #0175c8;
+}
+.secondary_btn {
+  background-color: white;
+  color: #0093fb;
+  border: 1px solid #0093fb;
+}
+.secondary_btn:hover {
+  background-color: white;
+  color: #0175c8;
+  border: 1px solid #0175c8;
+}

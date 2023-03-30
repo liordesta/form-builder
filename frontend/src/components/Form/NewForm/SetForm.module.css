@@ -1,0 +1,135 @@
+/* left-right layout & seperator */
+.split_sections {
+  display: flex;
+  height: 100vh;
+}
+
+.left_section {
+  width: 70%;
+}
+.right_section {
+  width: 30%;
+}
+.left_section,
+.right_section {
+  padding: 8px 32px;
+}
+.left_section h4,
+.right_section h4 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .split_sections {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left_section,
+  .right_section {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+/* components side */
+.field_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #696969;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.field_type {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+.field_type p {
+  margin-right: 8px;
+}
+.field_type textarea {
+  resize: none;
+  height: 68px;
+}
+
+/* form side */
+.form_body {
+  border: 1px solid #696969;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.form_title {
+  border: 0;
+  background-color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  width: stretch;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 8px;
+}
+
+.form_fields {
+  min-height: 300px;
+}
+
+.field_input_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+  user-select: none;
+  margin: 16px 0;
+}
+.field_textarea textarea {
+  min-height: 64px;
+}
+
+.btn_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error_msg {
+  color: red;
+  font-size: 14px;
+}
+
+.radio_example {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #767676;
+  border-radius: 3px;
+  padding: 16px;
+  background-color: #ffffff;
+}
+.radio_example > div {
+  color: #757575;
+}
+.radio_field_wrapper {
+  display: flex;
+}
+.radio_select_options {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+.radio_select_options label {
+  width: 64px;
+  word-break: break-word;
+}
+.radio_select_options input {
+  width: 32px;
+  height: 32px;
+}
+.field_radio_wrapper {
+  margin: 16px 0;
+}
