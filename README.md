@@ -1,6 +1,6 @@
-# Stock App
+# Form builder App
 
-This app allow you to create and build forms with different types and save them, in addition you can edit existing forms or delete them if you'd like
+This app allow you to create and build forms with different types and save them, in addition you can edit existing forms or delete them.
 
 ## Live Demo
 
