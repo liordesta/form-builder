@@ -46,7 +46,7 @@ export const FormItem = ({ data, isSingleForm }) => {
 
   return (
     <div className={classes.all_forms}>
-      {data.map((form) => (
+      {data?.map((form) => (
         <div key={form._id} className={classes.form_item}>
           <div className={classes.form_item_header}>
             <div>
