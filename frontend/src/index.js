@@ -8,9 +8,11 @@ require('typeface-roboto');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AppProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AppProvider>
+  <React.StrictMode>
+    <AppProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AppProvider>
+  </React.StrictMode>
 );
