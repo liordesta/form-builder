@@ -1,6 +1,7 @@
 # Form builder App
 
 This app allow you to create and build forms with different types and save them, in addition you can edit existing forms or delete them.
+* Note that the server may enter sleep so it will require a reload upon entering
 
 ## Live Demo
 
