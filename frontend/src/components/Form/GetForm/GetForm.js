@@ -19,7 +19,6 @@ export const GetForm = () => {
       try {
         const formsData = await ApiService.forms.getFormById(selectedFormId);
         setSingleForm(formsData);
-        setIsError(false);
       } catch (err) {
         setIsError(true);
         console.log('err', err);
@@ -68,7 +67,7 @@ export const GetForm = () => {
         </div>
       )}
 
-      {Object.keys(singleForm).length > 0 && (
+      {singleForm && Object.keys(singleForm).length > 0 && (
         <FormItem data={[singleForm]} isSingleForm />
       )}
     </section>
