@@ -9,6 +9,8 @@ import { useAppContext } from '../../../contexts/AppContext';
 import ApiService from '../../../api/services/ApiService';
 import classes from './GetForm.module.css';
 
+const isValidInput = /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9]+$/;
+
 export const GetForm = () => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +20,7 @@ export const GetForm = () => {
   const queryClient = useQueryClient();
 
   const getFormById = async () => {
-    if (!getFormInput.current.value.trim().length) return false;
+    if (!isValidInput.test(getFormInput.current.value)) return false;
 
     try {
       setIsLoading(true);
