@@ -18,7 +18,7 @@ export const GetForm = () => {
   const queryClient = useQueryClient();
 
   const getFormById = async () => {
-    if (!getFormInput.current.value.length) return false;
+    if (!getFormInput.current.value.trim().length) return false;
 
     try {
       setIsLoading(true);
