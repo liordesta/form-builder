@@ -62,7 +62,7 @@ export const FormItem = ({ data, isSingleForm }) => {
             </div>
           </div>
           <div className={classes.form_fields}>
-            {form.fieldsData.map((field, i) => (
+            {form.fieldsData?.map((field, i) => (
               <div key={field._id || i}>
                 {field.type === 'radio' ? (
                   <div>

@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
+import { LoadingSpinner } from './components/ui/LoadingSpinner/LoadingSpinner';
 import { useAppContext } from './contexts/AppContext';
 import ApiService from './api/services/ApiService';
 
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <Layout>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route exact path='/' element={<AllForms />} />
           <Route exact path='/create-form' element={<CreateForm />} />

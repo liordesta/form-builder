@@ -19,3 +19,9 @@
   color: #0175c8;
   border: 1px solid #0175c8;
 }
+
+.btnDisabled {
+  background-color: #808080;
+  pointer-events: none;
+  user-select: none;
+}
